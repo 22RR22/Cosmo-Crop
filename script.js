@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
     loadUrlBtn.addEventListener('click', function() {
         const url = imageUrlInput.value.trim();
         if (url) {
+            resetPage(); // Reset before loading new image
             loadImageFromUrl(url);
         }
     });
@@ -450,7 +451,23 @@ document.addEventListener('DOMContentLoaded', function() {
         setProgress(1);
     }
 
-    // Call resetPage when a new image is selected
-    document.getElementById('file-input').addEventListener('change', resetPage);
-    document.getElementById('image-url').addEventListener('input', resetPage);
+    fileInput.addEventListener('change', function() {
+    // Only reset after image is loaded
+    if (this.files.length > 0) {
+        loadImageFromFile(this.files[0]);
+    }
+});
+
+function loadImageFromFile(file) {
+    resetPage(); // Reset before loading new image
+    if (!file.type.startsWith('image/')) {
+        alert('Please select an image file.');
+        return;
+    }
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        loadImageFromUrl(e.target.result);
+    };
+    reader.readAsDataURL(file);
+}
 });
