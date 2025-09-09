@@ -428,4 +428,29 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // You can use cropBoxRect for cropping logic when user clicks "Crop"
+
+    function resetPage() {
+        // Hide editor and result sections
+        document.getElementById('editor').style.display = 'none';
+        document.getElementById('result').style.display = 'none';
+
+        // Reset crop box state
+        cropBoxRect = { left: 50, top: 50, width: 120, height: 120 };
+        updateCropBox();
+
+        // Clear image previews
+        previewImage.src = '';
+        document.getElementById('cropped-image').src = '';
+
+        // Reset dimension inputs
+        widthInput.value = '';
+        heightInput.value = '';
+
+        // Reset progress bar
+        setProgress(1);
+    }
+
+    // Call resetPage when a new image is selected
+    document.getElementById('file-input').addEventListener('change', resetPage);
+    document.getElementById('image-url').addEventListener('input', resetPage);
 });
