@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmo Crop – Online Image Cropper & Resizer | CC</title>
+    <meta name="description"
+        content="Cosmo Crop (CC) is a free, modern online image cropper and resizer. Instantly crop, resize, and download images. Drag, drop, or paste your image. Fast, easy, and secure.">
+    <meta name="keywords"
+        content="crop,image crop,image cropper,online cropper,online image cropper,image resizer,resize image,Cosmo Crop,CC,crop tool,photo crop,photo resizer,glassmorphism,modern UI,drag crop,download cropped image,free cropper,instant cropper,web cropper,online photo editor">
+    <meta name="author" content="Cosmo Vidya Academy">
+    <meta property="og:title" content="Cosmo Crop – Online Image Cropper & Resizer | CC">
+    <meta property="og:description" content="Crop and resize images online with Cosmo Crop (CC). Fast, free, and modern image cropper.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/">
+    <meta property="og:image" content="https://yourdomain.com/preview.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cosmo Crop – Online Image Cropper & Resizer | CC">
+    <meta name="twitter:description" content="Crop and resize images online with Cosmo Crop (CC). Fast, free, and modern image cropper.">
+    <meta name="twitter:image" content="https://yourdomain.com/preview.png">
+    <link rel="canonical" href="https://yourdomain.com/">
+    <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Cosmo Crop",
+  "url": "https://yourdomain.com/",
+  "description": "Cosmo Crop (CC) is a free, modern online image cropper and resizer. Instantly crop, resize, and download images.",
+  "sameAs": [
+    "https://twitter.com/yourprofile",
+    "https://facebook.com/yourprofile"
+  ]
+}
+</script>
+</head>
+
+<body>
+    <div class="gradient-bg" aria-hidden="true"></div>
+    <div class="page-layout">
+        <aside class="ad-section ad-left" aria-label="Advertisement Left">
+            <!-- Google/Facebook Ad code goes here -->
+        </aside>
+        <main class="container" role="main">
+            <header>
+                <h1 tabindex="0" aria-label="Cosmo Crop Image Cropper">Cosmo Crop</h1>
+            </header>
+            <section class="upload-section" id="drop-area" aria-label="Upload Image">
+                <form class="upload-options" autocomplete="off" aria-describedby="upload-desc">
+                    <div id="upload-desc" class="sr-only">Choose an image file, drag and drop, or paste an image URL.
+                    </div>
+                    <div class="upload-option">
+                        <label for="file-input" class="upload-label" tabindex="0">
+                            <span class="icon" aria-hidden="true">🖼️</span>
+                            <span>Choose File</span>
+                        </label>
+                        <input type="file" id="file-input" accept="image/*" hidden aria-label="Choose image file">
+                    </div>
+                    <div class="upload-option" aria-label="Drag and Drop">
+                        <p><span class="icon" aria-hidden="true">📥</span> or Drag &amp; Drop Image Here</p>
+                    </div>
+                    <div class="upload-option">
+                        <label for="image-url" class="sr-only">Paste image URL</label>
+                        <input type="url" id="image-url" placeholder="Paste image URL..." aria-label="Paste image URL">
+                        <button type="button" id="load-url" aria-label="Load image from URL">
+                            <span class="icon" aria-hidden="true">🔗</span> Load
+                        </button>
+                    </div>
+                </form>
+            </section>
+            <section class="editor-section" id="editor" style="display: none;" aria-label="Image Editor">
+                <div class="image-container">
+                    <div class="preview-container" aria-label="Image Preview">
+                        <img id="preview-image" alt="Preview of uploaded image" draggable="false">
+                        <div id="crop-box" tabindex="0" aria-label="Crop selection area" role="region"></div>
+                    </div>
+                </div>
+                <form class="dimension-controls" aria-label="Crop Dimensions" autocomplete="off">
+                    <h2><span class="icon" aria-hidden="true">✂️</span> Crop Dimensions</h2>
+                    <div class="control-group">
+                        <label for="width">Width:</label>
+                        <input type="number" id="width" min="1" step="1" aria-label="Crop width">
+                        <label for="height">Height:</label>
+                        <input type="number" id="height" min="1" step="1" aria-label="Crop height">
+                        <label for="unit">Unit:</label>
+                        <select id="unit" aria-label="Unit">
+                            <option value="px">Pixels</option>
+                            <option value="in">Inches</option>
+                            <option value="cm">Centimeters</option>
+                            <option value="mm">Millimeters</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <button type="button" id="apply-crop" aria-label="Apply crop">
+                            <span class="icon" aria-hidden="true">✅</span> Crop
+                        </button>
+                        <button type="button" id="reset-crop" aria-label="Reset crop">
+                            <span class="icon" aria-hidden="true">♻️</span> Reset
+                        </button>
+                    </div>
+                </form>
+                <section class="result-section" id="result" style="display: none;" aria-label="Cropped Result">
+                    <h2><span class="icon" aria-hidden="true">🚀</span> Cropped Result</h2>
+                    <div class="result-image-container">
+                        <img id="cropped-image" alt="Cropped image preview">
+                    </div>
+                    <button type="button" id="download-btn" aria-label="Download cropped image">
+                        <span class="icon" aria-hidden="true">⬇️</span> Download
+                    </button>
+                </section>
+            </section>
+            <footer aria-label="Site Footer">
+                <p>&copy; 2025 Cosmo Vidya Academy. All rights reserved.</p>
+                <!-- <p><a href="#" aria-label="Privacy Policy">Privacy Policy</a> | <a href="#"
+                        aria-label="Terms of Service">Terms of Service</a></p>
+                <p>Follow us on <a href="#" aria-label="Twitter">Twitter</a>, <a href="#"
+                        aria-label="Facebook">Facebook</a>, and <a href="#" aria-label="Instagram">Instagram</a></p> -->
+            </footer>
+        </main>
+        <aside class="ad-section ad-right" aria-label="Advertisement Right">
+            <!-- Google/Facebook Ad code goes here -->
+        </aside>
+        <div class="gradient-bg" aria-hidden="true"></div>
+        <script src="script.js"></script>
+</body>
+
+</html>
